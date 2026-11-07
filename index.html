@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Thread Kahaani — Wear Your Story</title>
+<style>
+:root{--ink:#201d16;--forest:#25291d;--cream:#f2e8d8;--paper:#faf5ec;--gold:#b68b58;--line:#d8c9b5}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Georgia,'Times New Roman',serif}
+.announcement{background:var(--forest);color:#f4e9d7;text-align:center;padding:9px;font-size:12px;letter-spacing:1px}
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 5%;border-bottom:1px solid var(--line);gap:16px}
+.brand{font-size:22px;letter-spacing:4px;text-align:center;font-weight:bold}.brand small{display:block;font-size:10px;letter-spacing:3px;margin-top:7px;font-weight:normal}
+nav a{color:var(--ink);text-decoration:none;margin-right:18px;font-size:14px}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:370px;background:#302a20;color:#f5ead8}
+.hero-photo{background:url('assets/hoodie-model-1.jpg') center 28%/cover;min-height:370px}
+.hero-copy{padding:55px 9%;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(120deg,#302a20,#4b3a2a)}
+.kicker{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
+h1{font-size:clamp(40px,6vw,72px);line-height:1;margin:16px 0;letter-spacing:2px}
+.hero p{line-height:1.7;color:#e4d6c3}.btn{display:inline-block;background:var(--cream);color:var(--ink);border:0;padding:13px 20px;text-decoration:none;font-weight:bold;cursor:pointer;width:max-content;margin-top:12px}
+section{padding:55px 5%}.section-title{text-align:center;margin-bottom:30px}.section-title h2{font-size:36px;margin:8px}.section-title p{color:#786b5b}
+.products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+.card{background:#fffaf2;border:1px solid var(--line);padding:10px}.card img{width:100%;aspect-ratio: .88;object-fit:cover;display:block;background:#ddd}
+.card h3{font-size:18px;margin:12px 0 5px}.price{font-weight:bold}.sizes{display:flex;gap:5px;margin:12px 0}.sizes button{flex:1;padding:8px 2px;border:1px solid var(--line);background:#f4ecdf;cursor:pointer}.sizes button.selected{background:var(--forest);color:white}
+.add{width:100%;background:var(--forest);color:white;border:0;padding:12px;cursor:pointer;font-weight:bold}
+.story{background:var(--forest);color:#f5ead8;text-align:center;padding:35px 10%;letter-spacing:1px}.story p{line-height:1.7;color:#e4d6c3}
+.checkout{display:grid;grid-template-columns:1fr 1fr;gap:22px}.panel{background:#fffaf2;border:1px solid var(--line);padding:22px}
+input,select{width:100%;padding:12px;margin:6px 0 12px;border:1px solid var(--line);background:white;font:inherit}
+.cartline{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:9px 0;font-size:14px}
+.note{font:12px Arial,sans-serif;color:#776d60;line-height:1.5}
+footer{background:var(--forest);color:#f5ead8;padding:32px 5%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:850px){.products{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr}.hero-photo{min-height:290px}.checkout{grid-template-columns:1fr}}
+@media(max-width:480px){header{padding:15px 4%}.brand{font-size:16px;letter-spacing:2px}nav a{margin-right:8px;font-size:12px}.products{gap:9px}.card{padding:7px}.card h3{font-size:15px}section{padding:38px 4%}}
+</style></head>
+<body>
+<div class="announcement">PREMIUM DESI STREETWEAR &nbsp; | &nbsp; ROOTED IN CULTURE, DESIGNED FOR TODAY &nbsp; | &nbsp; WEAR YOUR STORY</div>
+<header><nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#story">Our story</a></nav><div class="brand">THREAD KAHAANI<small>TIMELESS THREADS · ROOTED IN STORIES</small></div><a href="#order" style="color:inherit;text-decoration:none">Bag <span id="count">0</span></a></header>
+<main id="home">
+<div class="hero"><div class="hero-photo" role="img" aria-label="Model wearing a heritage-inspired hoodie"></div><div class="hero-copy"><div class="kicker">Premium Pakistani streetwear</div><h1>WEAR YOUR STORY.</h1><p>Real stories. Not just clothes. Heritage-inspired hoodies with thoughtful details, Urdu lettering and a contemporary streetwear spirit.</p><a class="btn" href="#shop">Shop the collection →</a></div></div>
+<section id="shop"><div class="section-title"><div class="kicker">The first collection</div><h2>Stories in every thread</h2><p>Choose your design and size. Every hoodie Rs. 14,450.</p></div><div class="products" id="products"></div></section>
+<div class="story" id="story"><div class="kicker">Thread Kahaani</div><h2>Pakistan · Heritage · In Every Step</h2><p>Inspired by the places, memories and feelings that make us who we are. A little tradition, a little street, and a story stitched into every piece.</p></div>
+<section id="order"><div class="section-title"><div class="kicker">Checkout</div><h2>Your order</h2><p>Orders are sent directly to our WhatsApp.</p></div><div class="checkout"><div class="panel"><h3>Your bag</h3><div id="cart"><p class="note">Your bag is empty. Add a hoodie to begin.</p></div><div class="cartline"><strong>Total</strong><strong id="total">Rs. 0</strong></div></div><div class="panel"><h3>Delivery details</h3><label>Name<input id="customer" placeholder="Your full name"></label><label>Phone<input id="phone" placeholder="03XX XXXXXXX"></label><label>Delivery address<input id="address" placeholder="House, street, city"></label><label>Payment<select id="payment"><option>Cash on Delivery</option><option>Easypaisa</option><option>JazzCash</option></select></label><p class="note">For Easypaisa or JazzCash, please arrange payment details with the store and include your transaction reference in the WhatsApp message. No automatic payment processing is enabled.</p><button class="add" onclick="sendOrder()">PLACE ORDER ON WHATSAPP</button></div></div></section>
+</main>
+<footer><div><strong>THREAD KAHAANI</strong><p class="note" style="color:#d8c9b5">Wear Your Story. · Premium Desi Streetwear</p></div><div>Customer care · Size guide · Shipping information</div><div>Pakistan</div></footer>
+<script>
+const items=[
+['Yaad','assets/hoodie-model-1.jpg'],['Falastine','assets/hoodie-model-2.jpg'],['Ghar','assets/hoodie-model-3.jpg'],['La Makaan','assets/hoodie-model-4.jpg'],
+['Gumaan','assets/hoodie-model-1.jpg'],['Pardes','assets/hoodie-model-2.jpg'],['Mitti','assets/hoodie-model-3.jpg'],['Lahore','assets/hoodie-model-4.jpg'],['Ishq','assets/hoodie-model-1.jpg'],['Safar','assets/hoodie-model-2.jpg']];
+const bag=[];
+document.getElementById('products').innerHTML=items.map((p,i)=>`<article class="card"><img src="${p[1]}" alt="${p[0]} hoodie on model"><h3>${p[0]} Hoodie</h3><div class="price">Rs. 14,450</div><div class="sizes" id="sizes${i}">${['S','M','L','XL','XXL'].map(s=>`<button onclick="pick(${i},'${s}',this)">${s}</button>`).join('')}</div><button class="add" onclick="add(${i})">ADD TO BAG</button></article>`).join('');
+const selected={};
+function pick(i,s,b){selected[i]=s;document.querySelectorAll('#sizes'+i+' button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}
+function add(i){if(!selected[i]){alert('Please select a size first.');return}bag.push({name:items[i][0]+' Hoodie',size:selected[i],price:14450});render()}
+function render(){document.getElementById('count').textContent=bag.length;document.getElementById('cart').innerHTML=bag.length?bag.map((x,i)=>`<div class="cartline"><span>${x.name} · Size ${x.size}</span><span>Rs. 14,450 <button onclick="removeItem(${i})">×</button></span></div>`).join(''):'<p class="note">Your bag is empty. Add a hoodie to begin.</p>';document.getElementById('total').textContent='Rs. '+(bag.length*14450).toLocaleString('en-PK')}
+function removeItem(i){bag.splice(i,1);render()}
+function sendOrder(){if(!bag.length){alert('Please add a hoodie to your bag.');return}let n=document.getElementById('customer').value.trim(),p=document.getElementById('phone').value.trim(),a=document.getElementById('address').value.trim();if(!n||!p||!a){alert('Please complete your name, phone and address.');return}let msg='NEW THREAD KAHAANI ORDER%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(p)+'%0AAddress: '+encodeURIComponent(a)+'%0A';bag.forEach(x=>msg+='%0A'+encodeURIComponent(x.name+' / Size '+x.size+' / Rs. 14,450'));msg+='%0ATotal: Rs. '+(bag.length*14450)+'%0APayment: '+encodeURIComponent(document.getElementById('payment').value);window.open('https://wa.me/923215921661?text='+msg,'_blank')}
+</script></body></html>
