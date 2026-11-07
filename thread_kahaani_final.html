@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thread Kahaani | Wear Your Story</title>
+<style>
+:root{--ink:#171714;--paper:#f5f1e9;--cream:#e8dfd0;--muted:#77736b;--line:#d8d0c3}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+header{display:flex;justify-content:space-between;align-items:center;padding:22px 6%;border-bottom:1px solid var(--line)}
+.logo{font-weight:900;letter-spacing:2px;font-size:20px}.tag{font-size:10px;letter-spacing:3px;color:var(--muted)}
+nav a{color:var(--ink);text-decoration:none;margin-left:22px;font-size:13px}
+.hero{padding:90px 8% 85px;background:var(--cream);display:grid;grid-template-columns:1.2fr .8fr;gap:35px;align-items:center}
+.eyebrow{letter-spacing:4px;font-size:11px;color:var(--muted);font-weight:bold}
+h1{font-size:clamp(48px,8vw,96px);line-height:.92;letter-spacing:-5px;margin:20px 0}
+.hero p{max-width:460px;line-height:1.7;color:#555148}
+.hero-art{min-height:300px;background:#24231f;color:#f4eee3;display:flex;align-items:center;justify-content:center;text-align:center;padding:30px}
+.hero-art strong{font-size:clamp(35px,5vw,62px);letter-spacing:-2px;line-height:1}
+.btn{display:inline-block;background:var(--ink);color:white;border:0;padding:14px 22px;text-decoration:none;font-weight:bold;cursor:pointer;margin-top:15px}
+section{padding:65px 6%}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:25px}
+h2{font-size:34px;letter-spacing:-1px;margin:8px 0}
+.products{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.product{background:#fff;border:1px solid var(--line);padding:12px}
+.product-art{height:230px;display:flex;align-items:center;justify-content:center;background:#e9e3d8;color:#292824;font-size:34px;font-weight:900;letter-spacing:-2px;text-align:center;padding:15px}
+.product:nth-child(2) .product-art{background:#24231f;color:#eee8dd}.product:nth-child(3) .product-art{background:#d6c9b6}.product:nth-child(4) .product-art{background:#d9d7d0}
+.product h3{font-size:15px;margin:14px 0 5px}.price{font-weight:bold}.product label{display:block;font-size:12px;margin-top:12px;color:var(--muted)}
+select,input{width:100%;padding:11px;border:1px solid var(--line);background:#fff;margin-top:6px;font:inherit}
+.add{width:100%;padding:12px;margin-top:12px;background:var(--ink);color:#fff;border:0;cursor:pointer;font-weight:bold}
+.checkout{background:#e8dfd0;display:grid;grid-template-columns:1fr 1fr;gap:35px}
+.panel{background:#f8f5ef;padding:25px;border:1px solid var(--line)}
+.cart-row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:10px 0;font-size:14px}
+.small{font-size:12px;color:var(--muted);line-height:1.6}
+footer{background:var(--ink);color:#f4eee3;padding:35px 6%;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+@media(max-width:800px){.hero{grid-template-columns:1fr;padding:60px 7%}.products{grid-template-columns:repeat(2,1fr)}.checkout{grid-template-columns:1fr}nav a{margin-left:10px}}
+@media(max-width:480px){header{padding:18px 5%}nav a{font-size:11px}.products{grid-template-columns:1fr 1fr}.product-art{height:165px;font-size:27px}section{padding:45px 5%}.hero h1{letter-spacing:-3px}}
+</style>
+</head>
+<body>
+<header><div><div class="logo">THREAD KAHAANI</div><div class="tag">WEAR YOUR STORY.</div></div><nav><a href="#shop">SHOP</a><a href="#order">ORDER</a></nav></header>
+<main>
+<div class="hero"><div><div class="eyebrow">EVERYDAY STREETWEAR · PAKISTAN</div><h1>WEAR<br>YOUR<br>STORY.</h1><p>Everyday essentials with a story of their own. Discover relaxed-fit tees and hoodies made for your daily rotation.</p><a class="btn" href="#shop">EXPLORE THE DROP</a></div><div class="hero-art"><strong>YOUR<br>STORY.<br>YOUR STYLE.</strong></div></div>
+<section id="shop"><div class="section-head"><div><div class="eyebrow">THE FIRST DROP</div><h2>Made for every day.</h2></div><div class="small">S · M · L · XL · XXL</div></div>
+<div class="products">
+<article class="product"><div class="product-art">EVERYDAY<br>HOODIE</div><h3>Everyday Classic Hoodie</h3><div class="price">Rs 2,999</div><label>Choose size<select id="s1"><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label><button class="add" onclick="add('Everyday Classic Hoodie',2999,'s1')">ADD TO BAG</button></article>
+<article class="product"><div class="product-art">ESSENTIAL<br>TEE</div><h3>Essential Oversized Tee</h3><div class="price">Rs 1,499</div><label>Choose size<select id="s2"><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label><button class="add" onclick="add('Essential Oversized Tee',1499,'s2')">ADD TO BAG</button></article>
+<article class="product"><div class="product-art">COFFEE<br>CLUB</div><h3>Coffee Club Hoodie</h3><div class="price">Rs 3,299</div><label>Choose size<select id="s3"><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label><button class="add" onclick="add('Coffee Club Hoodie',3299,'s3')">ADD TO BAG</button></article>
+<article class="product"><div class="product-art">DAILY<br>WEAR</div><h3>Daily Wear Tee</h3><div class="price">Rs 1,399</div><label>Choose size<select id="s4"><option>S</option><option>M</option><option>L</option><option>XL</option><option>XXL</option></select></label><button class="add" onclick="add('Daily Wear Tee',1399,'s4')">ADD TO BAG</button></article>
+</div></section>
+<section class="checkout" id="order"><div class="panel"><div class="eyebrow">YOUR SELECTION</div><h2>Your bag</h2><div id="cart"><p class="small">Your bag is empty. Add an item from the collection.</p></div><div class="cart-row"><strong>Total</strong><strong id="total">Rs 0</strong></div></div>
+<div class="panel"><div class="eyebrow">CHECKOUT VIA WHATSAPP</div><h2>Place your order</h2>
+<label>Full name<input id="name" placeholder="Your name"></label><label>Phone number<input id="phone" placeholder="03XX XXXXXXX"></label><label>Delivery address<input id="address" placeholder="House, street, city"></label>
+<label>Payment method<select id="payment" onchange="paymentInfo()"><option>Cash on Delivery (COD)</option><option>Easypaisa</option><option>JazzCash</option><option>Bank Transfer</option></select></label>
+<div id="paymentinfo" class="small" style="padding:12px;background:#eee8dd;margin-top:10px">Pay cash when your order is delivered.</div>
+<label id="refwrap" style="display:none">Transaction reference<input id="reference" placeholder="Enter transaction ID / reference"></label>
+<p class="small">Wallet details are placeholders. Replace them with your verified business account details before accepting online payments. Online transfers must be manually verified before dispatch.</p>
+<button class="btn" style="width:100%" onclick="orderNow()">SEND ORDER ON WHATSAPP</button>
+<p class="small">Your order will be sent to Thread Kahaani on WhatsApp. This demo site does not process payments automatically or store orders in an online database.</p>
+</div></section>
+</main>
+<footer><div><strong>THREAD KAHAANI</strong><div class="small" style="color:#c9c1b4">WEAR YOUR STORY.</div></div><div class="small" style="color:#c9c1b4">Made for your everyday story · Pakistan</div></footer>
+<script>
+const bag=[];
+function add(name,price,sizeId){const size=document.getElementById(sizeId).value;bag.push({name,price,size});render();alert(name+' ('+size+') added to your bag.');}
+function render(){const el=document.getElementById('cart');if(!bag.length){el.innerHTML='<p class="small">Your bag is empty.</p>';}else{el.innerHTML=bag.map((x,i)=>`<div class="cart-row"><span>${x.name} · ${x.size}<br><span class="small">Rs ${x.price.toLocaleString('en-PK')}</span></span><button onclick="removeItem(${i})" style="border:0;background:none;cursor:pointer">Remove</button></div>`).join('');}document.getElementById('total').textContent='Rs '+bag.reduce((s,x)=>s+x.price,0).toLocaleString('en-PK');}
+function removeItem(i){bag.splice(i,1);render();}
+function paymentInfo(){const p=document.getElementById('payment').value;const info={'Cash on Delivery (COD)':'Pay cash when your order is delivered.','Easypaisa':'Easypaisa account name: [ADD BUSINESS ACCOUNT NAME]<br>Account / mobile number: [ADD EASYPaisa NUMBER]','JazzCash':'JazzCash account name: [ADD BUSINESS ACCOUNT NAME]<br>Account / mobile number: [ADD JAZZCASH NUMBER]','Bank Transfer':'Bank: [ADD BANK NAME]<br>Account title: [ADD ACCOUNT TITLE]<br>IBAN: [ADD IBAN]'};document.getElementById('paymentinfo').innerHTML=info[p];document.getElementById('refwrap').style.display=p==='Cash on Delivery (COD)'?'none':'block';}
+function orderNow(){if(!bag.length){alert('Please add at least one item to your bag.');return;}const name=document.getElementById('name').value.trim(),phone=document.getElementById('phone').value.trim(),address=document.getElementById('address').value.trim();if(!name||!phone||!address){alert('Please enter your name, phone number and delivery address.');return;}const payment=document.getElementById('payment').value,ref=document.getElementById('reference').value.trim();if(payment!=='Cash on Delivery (COD)'&&!ref){alert('Please enter your transaction reference.');return;}let msg='*NEW THREAD KAHAANI ORDER*%0A%0A';msg+='Name: '+encodeURIComponent(name)+'%0APhone: '+encodeURIComponent(phone)+'%0AAddress: '+encodeURIComponent(address)+'%0A%0A*Items*%0A';bag.forEach(x=>msg+=encodeURIComponent(x.name+' | Size: '+x.size+' | Rs '+x.price)+'%0A');msg+='%0ATotal: Rs '+bag.reduce((s,x)=>s+x.price,0)+'%0APayment: '+encodeURIComponent(payment);if(ref)msg+='%0ATransaction reference: '+encodeURIComponent(ref);window.open('https://wa.me/923215921661?text='+msg,'_blank');}
+</script>
+</body></html>
