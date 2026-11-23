@@ -11,14 +11,14 @@ header{display:flex;align-items:center;justify-content:space-between;padding:20p
 .brand{font-size:22px;letter-spacing:4px;text-align:center;font-weight:bold}.brand small{display:block;font-size:10px;letter-spacing:3px;margin-top:7px;font-weight:normal}
 nav a{color:var(--ink);text-decoration:none;margin-right:18px;font-size:14px}
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:370px;background:#302a20;color:#f5ead8}
-.hero-photo{background:url('assets/hoodie-model-1.jpg') center 28%/cover;min-height:370px}
+.hero-photo{background:url('Lahore/01_front_view.jpg') center 28%/cover;min-height:370px}
 .hero-copy{padding:55px 9%;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(120deg,#302a20,#4b3a2a)}
 .kicker{font-size:11px;letter-spacing:3px;color:var(--gold);text-transform:uppercase}
 h1{font-size:clamp(40px,6vw,72px);line-height:1;margin:16px 0;letter-spacing:2px}
 .hero p{line-height:1.7;color:#e4d6c3}.btn{display:inline-block;background:var(--cream);color:var(--ink);border:0;padding:13px 20px;text-decoration:none;font-weight:bold;cursor:pointer;width:max-content;margin-top:12px}
 section{padding:55px 5%}.section-title{text-align:center;margin-bottom:30px}.section-title h2{font-size:36px;margin:8px}.section-title p{color:#786b5b}
 .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
-.card{background:#fffaf2;border:1px solid var(--line);padding:10px}.card img{width:100%;aspect-ratio: .88;object-fit:cover;display:block;background:#ddd}
+.card{background:#fffaf2;border:1px solid var(--line);padding:10px}.gallery{position:relative}.card .gallery img{width:100%;aspect-ratio:.88;object-fit:cover;display:block;background:#ddd}.gallery-controls{display:flex;align-items:center;justify-content:space-between;background:var(--forest);color:#fff;padding:5px 9px;font:12px Arial,sans-serif}.gallery-controls button{border:0;background:transparent;color:white;font-size:22px;line-height:1;cursor:pointer;padding:0 8px}
 .card h3{font-size:18px;margin:12px 0 5px}.price{font-weight:bold}.sizes{display:flex;gap:5px;margin:12px 0}.sizes button{flex:1;padding:8px 2px;border:1px solid var(--line);background:#f4ecdf;cursor:pointer}.sizes button.selected{background:var(--forest);color:white}
 .add{width:100%;background:var(--forest);color:white;border:0;padding:12px;cursor:pointer;font-weight:bold}
 .story{background:var(--forest);color:#f5ead8;text-align:center;padding:35px 10%;letter-spacing:1px}.story p{line-height:1.7;color:#e4d6c3}
@@ -42,13 +42,17 @@ footer{background:var(--forest);color:#f5ead8;padding:32px 5%;display:flex;justi
 <footer><div><strong>THREAD KAHAANI</strong><p class="note" style="color:#d8c9b5">Wear Your Story. · Premium Desi Streetwear</p></div><div>Customer care · Size guide · Shipping information</div><div>Pakistan</div></footer>
 <script>
 const items=[
-['Yaad','assets/hoodie-model-1.jpg'],['Falastine','assets/hoodie-model-2.jpg'],['Ghar','assets/hoodie-model-3.jpg'],['La Makaan','assets/hoodie-model-4.jpg'],
-['Gumaan','assets/hoodie-model-1.jpg'],['Pardes','assets/hoodie-model-2.jpg'],['Mitti','assets/hoodie-model-3.jpg'],['Lahore','assets/hoodie-model-4.jpg'],['Ishq','assets/hoodie-model-1.jpg'],['Safar','assets/hoodie-model-2.jpg']];
-const bag=[];
-document.getElementById('products').innerHTML=items.map((p,i)=>`<article class="card"><img src="${p[1]}" alt="${p[0]} hoodie on model"><h3>${p[0]} Hoodie</h3><div class="price">Rs. 14,450</div><div class="sizes" id="sizes${i}">${['S','M','L','XL','XXL'].map(s=>`<button onclick="pick(${i},'${s}',this)">${s}</button>`).join('')}</div><button class="add" onclick="add(${i})">ADD TO BAG</button></article>`).join('');
-const selected={};
+{name:'Lahore',images:['Lahore/01_front_view.jpg','Lahore/02_back_view.jpg','Lahore/03_three_quarter_view.jpg','Lahore/04_sleeve_embroidery_detail.jpg','Lahore/05_lifestyle_view.jpg','Lahore/06_brand_label_detail.jpg']},
+{name:'Mitti',images:['Mitti/01_front_view.jpg','Mitti/02_back_view.jpg','Mitti/03_three_quarter_view.jpg','Mitti/04_sleeve_embroidery_detail.jpg','Mitti/05_lifestyle_view.jpg']},
+{name:'Palestine',images:['Palestine/01_front_view.jpg','Palestine/02_back_view.jpg','Palestine/03_three_quarter_view.jpg','Palestine/04_sleeve_embroidery_detail.jpg','Palestine/05_lifestyle_view.jpg']},
+{name:'Pardes',images:['Pardes/01_front_view.jpg','Pardes/02_back_view.jpg','Pardes/03_three_quarter_view.jpg','Pardes/04_sleeve_embroidery_detail.jpg','Pardes/05_lifestyle_view.jpg']},
+{name:'Safar',images:['Safar/01_front_view.jpg','Safar/02_back_view.jpg','Safar/03_three_quarter_view.jpg','Safar/04_sleeve_embroidery_detail.jpg','Safar/05_lifestyle_view.jpg']}
+];
+const bag=[],selected={},galleryIndex={};
+document.getElementById('products').innerHTML=items.map((p,i)=>`<article class="card"><div class="gallery"><img id="galleryImage${i}" src="${p.images[0]}" alt="${p.name} hoodie"><div class="gallery-controls"><button type="button" onclick="changePhoto(${i},-1)">‹</button><span id="galleryCount${i}">1 / ${p.images.length}</span><button type="button" onclick="changePhoto(${i},1)">›</button></div></div><h3>${p.name} Hoodie</h3><div class="price">Rs. 14,450</div><div class="sizes" id="sizes${i}">${['S','M','L','XL','XXL'].map(s=>`<button onclick="pick(${i},'${s}',this)">${s}</button>`).join('')}</div><button class="add" onclick="add(${i})">ADD TO BAG</button></article>`).join('');
+function changePhoto(i,step){galleryIndex[i]=(galleryIndex[i]||0)+step;if(galleryIndex[i]<0)galleryIndex[i]=items[i].images.length-1;if(galleryIndex[i]>=items[i].images.length)galleryIndex[i]=0;document.getElementById('galleryImage'+i).src=items[i].images[galleryIndex[i]];document.getElementById('galleryCount'+i).textContent=(galleryIndex[i]+1)+' / '+items[i].images.length}
 function pick(i,s,b){selected[i]=s;document.querySelectorAll('#sizes'+i+' button').forEach(x=>x.classList.remove('selected'));b.classList.add('selected')}
-function add(i){if(!selected[i]){alert('Please select a size first.');return}bag.push({name:items[i][0]+' Hoodie',size:selected[i],price:14450});render()}
+function add(i){if(!selected[i]){alert('Please select a size first.');return}bag.push({name:items[i].name+' Hoodie',size:selected[i],price:14450});render()}
 function render(){document.getElementById('count').textContent=bag.length;document.getElementById('cart').innerHTML=bag.length?bag.map((x,i)=>`<div class="cartline"><span>${x.name} · Size ${x.size}</span><span>Rs. 14,450 <button onclick="removeItem(${i})">×</button></span></div>`).join(''):'<p class="note">Your bag is empty. Add a hoodie to begin.</p>';document.getElementById('total').textContent='Rs. '+(bag.length*14450).toLocaleString('en-PK')}
 function removeItem(i){bag.splice(i,1);render()}
 function sendOrder(){if(!bag.length){alert('Please add a hoodie to your bag.');return}let n=document.getElementById('customer').value.trim(),p=document.getElementById('phone').value.trim(),a=document.getElementById('address').value.trim();if(!n||!p||!a){alert('Please complete your name, phone and address.');return}let msg='NEW THREAD KAHAANI ORDER%0AName: '+encodeURIComponent(n)+'%0APhone: '+encodeURIComponent(p)+'%0AAddress: '+encodeURIComponent(a)+'%0A';bag.forEach(x=>msg+='%0A'+encodeURIComponent(x.name+' / Size '+x.size+' / Rs. 14,450'));msg+='%0ATotal: Rs. '+(bag.length*14450)+'%0APayment: '+encodeURIComponent(document.getElementById('payment').value);window.open('https://wa.me/923215921661?text='+msg,'_blank')}
