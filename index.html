@@ -43,10 +43,10 @@ footer{background:var(--forest);color:#f5ead8;padding:32px 5%;display:flex;justi
 <script>
 const items=[
 {name:'Lahore',images:['Lahore/01_front_view.jpg','Lahore/02_back_view.jpg','Lahore/03_three_quarter_view.jpg','Lahore/04_sleeve_embroidery_detail.jpg','Lahore/05_lifestyle_view.jpg','Lahore/06_brand_label_detail.jpg']},
-{name:'Mitti',images:['Mitti/01_front_view.jpg','Mitti/02_back_view.jpg','Mitti/03_three_quarter_view.jpg','Mitti/04_sleeve_embroidery_detail.jpg','Mitti/05_lifestyle_view.jpg']},
-{name:'Palestine',images:['Palestine/01_front_view.jpg','Palestine/02_back_view.jpg','Palestine/03_three_quarter_view.jpg','Palestine/04_sleeve_embroidery_detail.jpg','Palestine/05_lifestyle_view.jpg']},
-{name:'Pardes',images:['Pardes/01_front_view.jpg','Pardes/02_back_view.jpg','Pardes/03_three_quarter_view.jpg','Pardes/04_sleeve_embroidery_detail.jpg','Pardes/05_lifestyle_view.jpg']},
-{name:'Safar',images:['Safar/01_front_view.jpg','Safar/02_back_view.jpg','Safar/03_three_quarter_view.jpg','Safar/04_sleeve_embroidery_detail.jpg','Safar/05_lifestyle_view.jpg']}
+{name:'Mitti',images:['Mitti/01_mitti_view.jpg','Mitti/02_mitti_view.jpg','Mitti/03_mitti_view.jpg','Mitti/04_mitti_view.jpg','Mitti/05_mitti_view.jpg']},
+{name:'Palestine',images:['Palestine/01_palestine_view.jpg','Palestine/02_palestine_view.jpg','Palestine/03_palestine_view.jpg','Palestine/04_palestine_view.jpg','Palestine/05_palestine_view.jpg']},
+{name:'Pardes',images:['Pardes/01_pardes_view.jpg','Pardes/02_pardes_view.jpg','Pardes/03_pardes_view.jpg','Pardes/04_pardes_view.jpg','Pardes/05_pardes_view.jpg']},
+{name:'Safar',images:['Safar/01_safar_view.jpg','Safar/02_safar_view.jpg','Safar/03_safar_view.jpg','Safar/04_safar_view.jpg','Safar/05_safar_view.jpg']}
 ];
 const bag=[],selected={},galleryIndex={};
 document.getElementById('products').innerHTML=items.map((p,i)=>`<article class="card"><div class="gallery"><img id="galleryImage${i}" src="${p.images[0]}" alt="${p.name} hoodie"><div class="gallery-controls"><button type="button" onclick="changePhoto(${i},-1)">‹</button><span id="galleryCount${i}">1 / ${p.images.length}</span><button type="button" onclick="changePhoto(${i},1)">›</button></div></div><h3>${p.name} Hoodie</h3><div class="price">Rs. 14,450</div><div class="sizes" id="sizes${i}">${['S','M','L','XL','XXL'].map(s=>`<button onclick="pick(${i},'${s}',this)">${s}</button>`).join('')}</div><button class="add" onclick="add(${i})">ADD TO BAG</button></article>`).join('');
